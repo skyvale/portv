@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import SearchBox from '../SearchBox/SearchBox';
 import CurrentForecast from '../CurrentForecast/CurrentForecast';
+import ForecastTab from '../ForecastTab/ForecastTab';
 
 // pass searchbox data (input) up to this parent, using props
 // =====================================
@@ -9,7 +10,7 @@ import CurrentForecast from '../CurrentForecast/CurrentForecast';
 // api info
 const api = {
 	key: "63f783f49c54c8c9b52ac4624b488e3a",
-	base: "https://api.openweathermap.org/data/2.5/"
+	base: "https://api.openweathermap.org/data/2.5/forecast?q="
 }
 
 const WeatherSection = () => {
@@ -19,7 +20,7 @@ const WeatherSection = () => {
 
 	// api fetch request
 	const search = (query) => {
-        fetch(`${api.base}weather?q=${query}&units=imperial&appid=${api.key}`)
+        fetch(`${api.base}${query}&appid=${api.key}`)
             .then(res => res.json())
             .then(result => {
                 setWeather(result);
@@ -33,6 +34,13 @@ const WeatherSection = () => {
             <h1>Weather Section</h1>
             <SearchBox onSearch={search} />
             <CurrentForecast weather={weather} />
+            <div className='forecast'>
+                <ForecastTab weather={weather} />
+                <ForecastTab weather={weather} />
+                <ForecastTab weather={weather} />
+                <ForecastTab weather={weather} />
+                <ForecastTab weather={weather} />
+            </div>
         </div>
     );
 
