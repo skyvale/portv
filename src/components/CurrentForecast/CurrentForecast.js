@@ -8,15 +8,14 @@ import React, { useState, useEffect } from 'react';
 
 const CurrentForecast = (props) => {
 
+    /*
     const [data, setData] = useState({});
 
+    // acts similar to componentDidMount
     useEffect(() =>{
-        console.log('within useEffect function, data incoming');
         setData(props);
-        console.log(data); 
-        
     }, []);
-
+    */
 
     // RESEARCH javascript Date object
 
@@ -42,7 +41,7 @@ const CurrentForecast = (props) => {
             <div>
                 <div className="location-box">
                 <div className="location">{props.weather.city.name}, {props.weather.city.country}</div>
-                <div className="date">Tuesday December 8, 2020</div>
+                <div className="date">Tuesday December 9, 2020</div>
                 {/* <div className="date">{dateBuilder(new Date())}</div> */}
             </div>
             <div className="weather-box">

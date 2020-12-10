@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import SearchBox from '../SearchBox/SearchBox';
 import CurrentForecast from '../CurrentForecast/CurrentForecast';
 import ForecastTab from '../ForecastTab/ForecastTab';
+import './WeatherSection.css';
 
 // pass searchbox data (input) up to this parent, using props
 // =====================================
@@ -20,35 +21,49 @@ const WeatherSection = () => {
 
 	// api fetch request
 	const search = (query) => {
-        fetch(`${api.base}${query}&appid=${api.key}`)
+        fetch(`${api.base}${query}&units=imperial&appid=${api.key}`)
             .then(res => res.json())
             .then(result => {
                 setWeather(result);
                 console.log(result);
             });
         }
-		
+
+    // prevents the jsx from rendering before complete API call
+    // also does user validation if user doesnt correctly write query	
     const renderWeather = () => {
-        if(weather.cod === "200"){
-            return <CurrentForecast weather={weather} />
-        }else if (weather.cod === "404"){
-            return <p>No city found, please search again</p>
-        }else{
-            return <p>Search for a location</p>
+        if(weather.cod === '200') {
+            return <CurrentForecast weather={weather} />           
+        } else if (weather.cod === '404'){
+            return <p>Not a valid city. Please search again.</p>
+        } else {
+            return <p>No location searched. Please type a valid city name.</p>
+        }
+    }
+
+    const renderForecasts = () => {
+        if(weather.cod === '200') {
+            return <ForecastTab weather={weather} />
+        } else {
+            return <p>No forecast available for chosen city.</p>
         }
     }
 
     return (
-        <div>
-            <h1>Weather Section</h1>
-            <SearchBox onSearch={search} />
-            {renderWeather()}
-            <div className='forecast'>
-                <ForecastTab weather={weather} />
-                <ForecastTab weather={weather} />
-                <ForecastTab weather={weather} />
-                <ForecastTab weather={weather} />
-                <ForecastTab weather={weather} />
+        <div className='weather-sect-container'>
+            <div className='top-section'>
+                <h1>Weather Section</h1>
+                <SearchBox className='search-box' onSearch={search} />
+                <div className='current-weather'>
+                    {renderWeather()}
+                </div>  
+            </div>        
+            <div className='forecast-tabs'>
+                {renderForecasts()}
+                {renderForecasts()}
+                {renderForecasts()}
+                {renderForecasts()}
+                {renderForecasts()}
             </div>
         </div>
     );

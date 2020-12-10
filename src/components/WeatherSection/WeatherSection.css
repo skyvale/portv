@@ -1,0 +1,35 @@
+
+.weather-sect-container {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    border: 2px solid grey;
+    width: 1200px;
+}
+
+.top-section {
+    padding: 10px;
+}
+
+h1 {
+    display: none;
+}
+
+.search-box {
+    margin: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.current-weather {
+    border: 1px solid grey;
+    display: flex;
+    justify-content: center;
+}
+
+.forecast-tabs {
+    border: 1px solid grey;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+}
