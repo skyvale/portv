@@ -11,12 +11,10 @@ const CurrentForecast = (props) => {
     const [data, setData] = useState({});
 
     useEffect(() =>{
-        console.log('within useEffect function');
-        if(typeof props.weather.main != "undefined") {
-            console.log('within useEffect validation');
-            setData(props);
-            console.log(data); 
-        }          
+        console.log('within useEffect function, data incoming');
+        setData(props);
+        console.log(data); 
+        
     }, []);
 
 

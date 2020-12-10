@@ -28,12 +28,21 @@ const WeatherSection = () => {
             });
         }
 		
+    const renderWeather = () => {
+        if(weather.cod === "200"){
+            return <CurrentForecast weather={weather} />
+        }else if (weather.cod === "404"){
+            return <p>No city found, please search again</p>
+        }else{
+            return <p>Search for a location</p>
+        }
+    }
 
     return (
         <div>
             <h1>Weather Section</h1>
             <SearchBox onSearch={search} />
-            <CurrentForecast weather={weather} />
+            {renderWeather()}
             <div className='forecast'>
                 <ForecastTab weather={weather} />
                 <ForecastTab weather={weather} />
