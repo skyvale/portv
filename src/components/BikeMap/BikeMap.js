@@ -4,6 +4,7 @@ import './BikeMap.css';
 
 // uses the MapBox API
 // !! location is hard-coded right now- take in query data to determine location
+// GEOCODING
 
 const BikeMap = () => {
 

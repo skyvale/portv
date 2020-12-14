@@ -41,13 +41,38 @@ const WeatherSection = () => {
         }
     }
 
-    // !! probably need to render these differently, need a .active class
+    // old method for rendering forecast tabs-- keeping jic
+    /* 
     const renderForecasts = () => {
+    console.log(weather)
         if(weather.cod === '200') {
             return <ForecastTab weather={weather} className='forecast-tab' />
         } else {
             return <p className='forecast-tab'>No forecast available for chosen city.</p>
         }
+    }
+    */
+
+
+    // renders the forecast tabs on the page by sending them the api information
+    const makeTabs = ()=>{
+
+        // checks if API is working, if not, displays default tab
+        if (!weather || !weather.list){ return(
+            <h3 className='forecast-tab'> No forecast data for specified city. </h3>
+        )};
+
+        // grabs data from the API and gives to forecast tab components to render
+        // *note* the index%8 is there since the API splits each day into 3-hour chunks
+        let weatherElements = weather.list.map((item,index)=>{
+                if(index%8 === 0){
+                console.log(item);
+                // add ternary operator inside active{} to make the first rendered day active
+                 return   <ForecastTab className='forecast-tab' active={true} weatherData={item} />
+                }
+        });
+          
+        return weatherElements;
     }
 
     return (
@@ -60,11 +85,7 @@ const WeatherSection = () => {
                 </div>  
             </div>        
             <div className='forecast-tabs'>
-                {renderForecasts()}
-                {renderForecasts()}
-                {renderForecasts()}
-                {renderForecasts()}
-                {renderForecasts()}
+                { makeTabs() }            
             </div>
         </div>
     );
