@@ -1,47 +1,27 @@
-import React, { useRef, useState, useEffect } from 'react';
-import MapContext from '../MapContext/MapContext';
-import * as ol from 'ol';
+import React, { useState } from 'react';
+import ReactMapGL from 'react-map-gl';
 import './BikeMap.css';
 
-const BikeMap = ({ children, zoom, center }) => {
+const BikeMap = () => {
 
-    const mapRef = useRef();
-    const [map, setMap] = useState(null);
-
-    // on component mount
-    useEffect(() => {
-
-        let options = {
-            view: new ol.View({ zoom, center }),
-            layers: [],
-            controls: [],
-            overlays: []
-        };
-
-        let mapObject = new ol.Map(options);
-
-        mapObject.setTarget(mapRef.current);
-        setMap(mapObject);
-
-        return () => mapObject.setTarget(undefined);
-
-    }, []);
-
-    // zoom change handler
-    useEffect(() => {
-        
-        if(!map) return;
-        map.getView().setCenter(center)
-
-    }, [center]);
+    const mapboxApiAccessToken = 'pk.eyJ1Ijoic2t5dmFsZSIsImEiOiJja2lueDIzMDcxNzhiMnNzdjdvbGlreGNuIn0.TuSm75u2GLQlTdA2YOf4wQ';
+    const [viewport, setViewport] = useState({
+        width: '400px',
+        height: '400px',
+        latitude: 28.5421109,
+        longitude: -81.3790304,
+        zoom: 10
+    });
 
     return(
-        <MapContext.Provider value={{ map }}>
-            <div ref={mapRef} className='ol-map'>
-                <h1>Bike Section</h1>
-                { children }
-            </div>     
-        </MapContext.Provider>
+        <div>
+            <ReactMapGL 
+                {...viewport} 
+                mapboxApiAccessToken={mapboxApiAccessToken}
+                mapStyle='mapbox://styles/skyvale/ckiny3d0h127l18n65lkffaqw'
+                onViewportChange = {viewport => {setViewport(viewport)}}>
+            </ReactMapGL>
+        </div>
     );
 }
 
