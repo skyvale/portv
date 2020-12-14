@@ -1,14 +1,23 @@
 
 .weather-sect-container {
-    margin: 0 auto;
     display: flex;
     flex-direction: column;
-    border: 2px solid grey;
-    width: 1200px;
+    flex-grow: 2;
+    height: 100%;
+    background-image: url('../../assets/Forecast_BGs/cloudy_day.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.weather-sect-container p {
+    text-align: center;
+    vertical-align: middle;
+    line-height: 400px;
 }
 
 .top-section {
     padding: 10px;
+    height: 40rem;
 }
 
 h1 {
@@ -22,14 +31,21 @@ h1 {
 }
 
 .current-weather {
-    border: 1px solid grey;
     display: flex;
     justify-content: center;
 }
 
 .forecast-tabs {
-    border: 1px solid grey;
+    margin-top: 4rem;
     display: flex;
-    justify-content: center;
+    align-items: flex-end;
+    justify-content: flex-end;
     flex-direction: row;
+}
+
+.forecast-tab {
+    border-right: 2px solid #fff;
+    margin-bottom: auto;
+    height: 400px;
+    flex-grow: 1;
 }

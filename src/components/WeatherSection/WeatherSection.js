@@ -41,11 +41,12 @@ const WeatherSection = () => {
         }
     }
 
+    // !! probably need to render these differently, need a .active class
     const renderForecasts = () => {
         if(weather.cod === '200') {
-            return <ForecastTab weather={weather} />
+            return <ForecastTab weather={weather} className='forecast-tab' />
         } else {
-            return <p>No forecast available for chosen city.</p>
+            return <p className='forecast-tab'>No forecast available for chosen city.</p>
         }
     }
 

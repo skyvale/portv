@@ -4,3 +4,7 @@
     text-decoration: underline;
     margin: 2rem;
 }
+
+.info-container p {
+    padding: 2rem;
+}
