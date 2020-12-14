@@ -1,0 +1,8 @@
+@import url('https://fonts.googleapis.com/css?family=Quicksand');
+
+.App {
+    font-size: 1.8rem;
+    font-family: 'Quicksand';
+    color: #fff;
+    background-color: #323872;
+}

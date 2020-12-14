@@ -3,4 +3,10 @@
     border: 1px solid darkslategrey;
     margin: 10px;
     padding: 10px;
+    background-color: rgba(34, 63, 136, 0.5);
+}
+
+.forecast-tab:hover {
+    cursor: pointer;
+    background-color: rgba(34, 63, 136, 0);
 }

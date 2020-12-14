@@ -1,3 +1,4 @@
+import './Reset.css';
 import './App.css';
 import WeatherSection from './components/WeatherSection/WeatherSection';
 import MapSection from './components/MapSection/MapSection';
