@@ -1,8 +1,9 @@
 import './Reset.css';
 import './App.css';
-import WeatherSection from './components/WeatherSection/WeatherSection';
-import MapSection from './components/MapSection/MapSection';
-import Footer from './components/Footer/Footer';
+import { HashRouter as Router, Route } from 'react-router-dom';
+import DataPage from './components/DataPage/DataPage';
+import SearchBox from './components/SearchBox/SearchBox';
+import HomePage from './components/HomePage/HomePage';
 
 function App() {
 
@@ -10,9 +11,12 @@ function App() {
   
   return (
     <div className="App">
-      <WeatherSection />
-      <MapSection />
-      <Footer />
+      <Router>
+        <Route path="/" exact >
+          <HomePage />
+        </Route>
+        <Route path="/search/:paramQuery" exact component={DataPage}></Route>
+      </Router>
     </div>
   );
 }

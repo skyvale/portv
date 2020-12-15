@@ -1,0 +1,10 @@
+@import url('https://fonts.googleapis.com/css?family=Quicksand');
+
+.datapage-container {
+    display: flex;
+    flex-direction: column;
+    font-size: 1.8rem;
+    font-family: 'Quicksand';
+    color: #fff;
+    background-color: #323872;
+}
