@@ -3,12 +3,12 @@ import BikeMap from '../BikeMap/BikeMap';
 import MapInfo from '../MapInfo/MapInfo';
 import './MapSection.css';
 
-const MapSection = () => {
+const MapSection = (props) => {
 
     return(
         <div className='map-container'>
             <MapInfo className='map-info'/>
-            <BikeMap className='bike-map'/>
+            <BikeMap className='bike-map' query={props.query}/>
         </div>
     );
 }

@@ -2,7 +2,6 @@ import './Reset.css';
 import './App.css';
 import { HashRouter as Router, Route } from 'react-router-dom';
 import DataPage from './components/DataPage/DataPage';
-import SearchBox from './components/SearchBox/SearchBox';
 import HomePage from './components/HomePage/HomePage';
 
 function App() {

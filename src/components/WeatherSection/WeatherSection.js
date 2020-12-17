@@ -3,12 +3,12 @@ import SearchBox from '../SearchBox/SearchBox';
 import CurrentForecast from '../CurrentForecast/CurrentForecast';
 import ForecastTab from '../ForecastTab/ForecastTab';
 import './WeatherSection.css';
-import { useParams } from 'react-router-dom';
 
 /* 
     using query data from SearchBox component, this component fetches data from the API and passes the data
     to its other child components, CurrentForecast and ForecastTab, to display on the page
 */
+
 // =====================================
 
 
@@ -23,9 +23,9 @@ const WeatherSection = (props) => {
     // yoinks the weather data object from api
 	const [weather, setWeather] = useState({}) 
 
-    //
+    // ...
     useEffect(()=>{
-        if(props && props.query && props.query != ''){
+        if(props && props.query && props.query !== ''){
             search(props.query)
         }
     },[props.query,props]);
@@ -36,7 +36,7 @@ const WeatherSection = (props) => {
             .then(res => res.json())
             .then(result => {
                 setWeather(result);
-                console.log(result);
+                //console.log(result);
             });
     }
 
@@ -63,9 +63,8 @@ const WeatherSection = (props) => {
         // grabs data from the API and gives to forecast tab components to render
         // *note* the index%8 is there since the API splits each day into 3-hour chunks
         let weatherElements = weather.list.map((item,index)=>{
-                if(index%8 === 0){
-                // add ternary operator inside active{} to make the first rendered day active
-                 return   <ForecastTab className='forecast-tab' key={index} active={true} weatherData={item} />
+                if(index%8 === 0 || index === 0){
+                 return <ForecastTab className='forecast-tab' key={index} active={index === 1 ? true : false} weatherData={item} />
                 }
         });
           

@@ -1,21 +1,13 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 
 // CHILD of WeatherSection.js
-// GRANDCHILD of App.js
+// GRANDCHILD of DataPage.js
 // SIBLING of ForecastTab.js
 
 // ===============================================
 
 const CurrentForecast = (props) => {
 
-    /*
-    const [data, setData] = useState({});
-
-    // acts similar to componentDidMount
-    useEffect(() =>{
-        setData(props);
-    }, []);
-    */
 
     // RESEARCH javascript Date object
 

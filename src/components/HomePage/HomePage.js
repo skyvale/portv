@@ -5,7 +5,7 @@ import './HomePage.css';
 const HomePage = () => {
 
     const onHomeSearch = (query) => {
-        console.log('query= ' + query);
+        // console.log('query= ' + query);
         window.location = '#/search/' + query;
     }
 

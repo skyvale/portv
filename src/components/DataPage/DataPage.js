@@ -8,13 +8,14 @@ import { useParams } from 'react-router-dom';
 const DataPage = () => {
 
     // sets the query based on the current /url
-    const {paramQuery} = useParams();
-    const [query,setQuery] = useState('');
+    const { paramQuery } = useParams();
+    const [ query,setQuery ] = useState('');
 
+    // track the param query for changes
     useEffect(()=>{
-    console.log("DataPage.paramQuery",paramQuery)
+        // console.log("DataPage.paramQuery", paramQuery);
         setQuery(paramQuery || '');
-    },[paramQuery]) //SB: Track the param query for changes.
+    },[paramQuery]);
 
     return(
         <div className='datapage-container'>

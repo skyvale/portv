@@ -7,20 +7,6 @@ const ForecastTab = (props) => {
 
     // use a map instead of a for loop
 
-    let forecastTemplate = ``;
-    const determineDay = () => {
-        for (let i = 1; i < 6; i++) {
-            forecastTemplate = `            
-                <div className="forecast-temp">
-                    Temp: ${Math.round(props.weather.list[i].main.temp_max)}°F
-                </div>
-                <div className="forecast-weather">
-                    Forecast: ${props.weather.list[i].weather[0].main}
-                </div>   
-            `
-        }
-    }
-
     return(
         <div className='forecast-tab'>
             <h3>Forecast Tab</h3>
