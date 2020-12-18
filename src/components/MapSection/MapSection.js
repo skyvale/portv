@@ -5,10 +5,11 @@ import './MapSection.css';
 
 const MapSection = (props) => {
 
+    //console.log('mapsection props: ', props);
     return(
         <div className='map-container'>
             <MapInfo className='map-info'/>
-            <BikeMap className='bike-map' query={props.query}/>
+            <BikeMap className='bike-map' query={props}/>
         </div>
     );
 }

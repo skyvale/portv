@@ -9,32 +9,30 @@ import './BikeMap.css';
 const BikeMap = (props) => {
 
     // hook for getting the location data from the google api
-	const [location, setLocation] = useState({});
+	//const [location, setLocation] = useState({});
 
-    // set coordinates after getting data from api
-    let latitude = location.results[0].geometry.location.lat;
-    let longitude = location.results[0].geometry.location.lng;
-
+    // !!TODO -- apparently, the props arent sending through anymore... need to fix
     // checks if the query was successfully sent in the props, and if it was, then it will run the api fetch request
     useEffect(()=>{
         //if(props && props.query && props.query !== ''){}
-        getLatAndLong(props.query);
+        //console.log('bikemap props: ', props);
+        //getLatAndLong(props.query);
 
     },[]);
 
-    // grabs the city name that the user inputed
-    let cityName = props.query;
 
     // Google Geocoding API stuff
     const googleAPIkey = 'AIzaSyCjwsWu1EqiE2WazgNayzqUIHMpnHAsDZo';
         
     // using the google api, determine and the latitude and longitude based on the location the user entered
 	const getLatAndLong = (query) => {
-        fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=+${props.query},+USA&key=${googleAPIkey}`)
+        fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=+miami,+USA&key=${googleAPIkey}`)
             .then(res => res.json())
             .then(result => {
                 //console.log(result);
-                setLocation(result);        
+                //setLocation(result);
+                //latitude = location.results[0].geometry.location.lat;
+                //longitude = location.results[0].geometry.location.lng;   
             });
     }   
 
@@ -44,8 +42,10 @@ const BikeMap = (props) => {
     const [viewport, setViewport] = useState({
         width: '600px',
         height: '600px',
-        latitude: `${latitude}`,
-        longitude: `${longitude}`,
+        latitude: 36,
+        longitude: -81,
+        //latitude: `${latitude}`,
+        //longitude: `${longitude}`,
         zoom: 10
     });
     

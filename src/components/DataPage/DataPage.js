@@ -13,13 +13,12 @@ const DataPage = () => {
 
     // track the param query for changes
     useEffect(()=>{
-        // console.log("DataPage.paramQuery", paramQuery);
+        //console.log("DataPage.paramQuery", paramQuery);
         setQuery(paramQuery || '');
     },[paramQuery]);
 
     return(
         <div className='datapage-container'>
-        <h3>Data</h3>
             <WeatherSection query={query} />
             <MapSection query={query} />
             <Footer />
