@@ -9,16 +9,27 @@ import './BikeMap.css';
 const BikeMap = (props) => {
 
     // hook for getting the location data from the google api
-	//const [location, setLocation] = useState({});
+    const [location, setLocation] = useState({});
+    const [latitude, setLatitude] = useState(0);
+    const [longitude, setLongitude] = useState(0);
 
-    // !!TODO -- apparently, the props arent sending through anymore... need to fix
+    // MapBox API stuff
+    const mapboxApiAccessToken = 'pk.eyJ1Ijoic2t5dmFsZSIsImEiOiJja2lueDIzMDcxNzhiMnNzdjdvbGlreGNuIn0.TuSm75u2GLQlTdA2YOf4wQ';
+    //const [viewport, setViewport] = useState({});
+    const [viewport, setViewport] = useState({
+        latitude: 36,
+        longitude: -81,
+        zoom: 10
+    });
+ 
     // checks if the query was successfully sent in the props, and if it was, then it will run the api fetch request
     useEffect(()=>{
-        //if(props && props.query && props.query !== ''){}
-        //console.log('bikemap props: ', props);
-        //getLatAndLong(props.query);
+        if(props && props.query && props.query !== ''){
+            //console.log('bikemap props: ', props);
+            getLatAndLong(props.query);            
+        }
 
-    },[]);
+    },[props, props.query]);
 
 
     // Google Geocoding API stuff
@@ -26,36 +37,31 @@ const BikeMap = (props) => {
         
     // using the google api, determine and the latitude and longitude based on the location the user entered
 	const getLatAndLong = (query) => {
-        fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=+miami,+USA&key=${googleAPIkey}`)
+        fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=+${query},+USA&key=${googleAPIkey}`)
             .then(res => res.json())
             .then(result => {
-                //console.log(result);
-                //setLocation(result);
-                //latitude = location.results[0].geometry.location.lat;
-                //longitude = location.results[0].geometry.location.lng;   
+                console.log(result);
+                setLocation(result);
+                setViewport({
+                    latitude: result.results[0].geometry.location.lat, 
+                    longitude: result.results[0].geometry.location.lng,
+                    zoom: 10
+                }); 
+                setLatitude(result.results[0].geometry.location.lat);
+                setLongitude(result.results[0].geometry.location.lng);
             });
-    }   
+    }
 
-    // !!TODO This is happening before the fetch request gets the lat/long data-- figure out how to get it to happen after the data is fetched
-    // MapBox API stuff
-    const mapboxApiAccessToken = 'pk.eyJ1Ijoic2t5dmFsZSIsImEiOiJja2lueDIzMDcxNzhiMnNzdjdvbGlreGNuIn0.TuSm75u2GLQlTdA2YOf4wQ';
-    const [viewport, setViewport] = useState({
-        width: '600px',
-        height: '600px',
-        latitude: 36,
-        longitude: -81,
-        //latitude: `${latitude}`,
-        //longitude: `${longitude}`,
-        zoom: 10
-    });
-    
+    //!!TODO add marker to current city using the set lat/long variables, not the ones in viewport
     return(
         <div className='map-container'>
-            <ReactMapGL 
-                {...viewport} 
+            <ReactMapGL
+                {...viewport }
+                width='600px'
+                height='600px'
                 mapboxApiAccessToken={mapboxApiAccessToken}
                 mapStyle='mapbox://styles/skyvale/ckiny3d0h127l18n65lkffaqw'
-                onViewportChange = {viewport => {setViewport(viewport)}}>
+                onViewportChange = {viewport => {setViewport(viewport)}} >         
             </ReactMapGL>
         </div>
     );

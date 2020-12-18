@@ -36,16 +36,15 @@ const CurrentForecast = (props) => {
 
     // function that determines what forecast icon to be inserted into jsx
     const determineForecastIcon = () => {
-        //console.log('determineForecast props: ', props.weather.list[0].weather[0].main);
-        switch (props.weather.list[0].weather[0].main) {
+        switch (props.weather.list[props.forecastIndex].weather[0].main) {
             case 'Clouds':
-                return `<img className='forecast-icon' src='${cloudyIcon}' alt='cloudy forecast'>`
+                return <img className='forecast-icon' src={cloudyIcon} alt='cloudy forecast' />
             case 'Rain':
-                return `<img className='forecast-icon' src='${rainIcon}' alt='rain forecast'>`
+                return <img className='forecast-icon' src={rainIcon} alt='rain forecast' />
             case 'Snow':
-                return `<img className='forecast-icon' src='${snowIcon}' alt='snow forecast'>`
+                return <img className='forecast-icon' src={snowIcon} alt='snow forecast' />
             case 'Clear':
-                return `<img className='forecast-icon' src='${clearIcon}' alt='clear forecast'>`
+                return <img className='forecast-icon' src={clearIcon} alt='clear forecast' />
 
         }
 
@@ -62,17 +61,17 @@ const CurrentForecast = (props) => {
 
             <div className='forecast-temps'>
                 <div className="current-temp" aria-label='current temp'>
-                    {Math.round(props.weather.list[0].main.temp)}°F
+                    {Math.round(props.weather.list[props.forecastIndex].main.temp)}°F
                 </div>
                 <div className="weather" aria-label='current forecast'>
                     { determineForecastIcon() }               
-                    {props.weather.list[0].weather[0].main}
+                    {props.weather.list[props.forecastIndex].weather[0].main}
                 </div>
                 <div className="max-temp">
-                    High {Math.round(props.weather.list[0].main.temp_max)}°F
+                    High {Math.round(props.weather.list[props.forecastIndex].main.temp_max)}°F
                 </div>	
                 <div className="min-temp">
-                    Low {Math.round(props.weather.list[0].main.temp_min)}°F
+                    Low {Math.round(props.weather.list[props.forecastIndex].main.temp_min)}°F
                 </div>									
             </div>
 
@@ -83,16 +82,16 @@ const CurrentForecast = (props) => {
                 </div>
                 <div className='forecast-misc'>
                     <div className="humidity" aria-label='humidity'>
-                        {props.weather.list[0].main.humidity}%
+                        {props.weather.list[props.forecastIndex].main.humidity}%
                     </div>
                     <div className="wind" aria-label='wind speed'>
-                        {Math.round(props.weather.list[0].wind.speed)}mph
+                        {Math.round(props.weather.list[props.forecastIndex].wind.speed)}mph
                     </div>
                     <div className="sunrise" aria-label='sunrise time'>
-                        {props.weather.city.sunrise}
+                        {new Date((props.weather.city.sunrise)*1000).toTimeString()}
                     </div>
                     <div className="sunset" aria-label='sunset time'>
-                        {props.weather.city.sunset}
+                        {new Date((props.weather.city.sunset)*1000).toTimeString()}
                     </div>       
                 </div>
             </div> 

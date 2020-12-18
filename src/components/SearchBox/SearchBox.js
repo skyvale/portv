@@ -14,8 +14,8 @@ const SearchBox = (props) => {
 	// this occurs before page load
 	useEffect(()=>{
 		setQuery(props.query || "no query")			
-		// SB: I think if you add props.query to the array, it'll make sure to refresh when that variable changes.	
-	},[props.query])
+			
+	},[props.query]) // refreshes when query is changed
 
 
 	// search function for weather api

@@ -9,7 +9,7 @@ const MapSection = (props) => {
     return(
         <div className='map-container'>
             <MapInfo className='map-info'/>
-            <BikeMap className='bike-map' query={props}/>
+            <BikeMap className='bike-map' query={props.query}/>
         </div>
     );
 }
