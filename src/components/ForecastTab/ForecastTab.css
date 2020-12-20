@@ -1,14 +1,30 @@
 
 .forecast-tab {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
     padding: 10px;
-    background-color: rgba(34, 63, 136, 0.5);
+    background-color: rgba(11, 13, 95, 0.5);
 }
 
 .forecast-tab:hover {
     cursor: pointer;
-    background-color: rgba(34, 63, 136, 0);
+    background-color: rgba(11, 13, 95, 0);
 }
 
 .forecast-tabs .active {
-    background-color: rgba(34, 63, 136, 0);
+    background-color: rgba(11, 13, 95, 0);
+}
+
+.forecast-temp {
+    font-size: 6rem;
+    padding-top: 2rem;
+}
+
+
+.forecast-weather .forecast-icon {
+    display: block;
+    height: 300px;
+    width: 300px;
 }

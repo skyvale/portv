@@ -5,7 +5,6 @@
     flex-wrap: wrap;
     padding: 1rem;
     font-size: 2.8rem;
-    height: 300px;
     width: 1600px;
     border-radius: 10px;
     background-color: rgba(34, 63, 136, 0.5);
@@ -33,37 +32,59 @@ Date + Location
 Forecast Temps
 */
 .forecast-temps {
+    position: relative;
+    height: 100%;
     display: flex;
     flex-grow: 0;
     flex-shrink: 1;
     flex-basis: calc(50% - 4rem);
     flex-direction: column;
-    justify-content: center;
-    margin: 2rem;
-    border: 1px solid red;
+    justify-content: space-around;
+    align-items: flex-start;
+    padding: 2rem;
 }
 
-.forecast-icon {
-    display: inline-block;
-    height: 50px;
-    width: 50px;
+.weather .forecast-icon {
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: block;
+    height: 350px;
+    width: 350px;
 }
 
 .current-temp {
-    font-size: 5rem;
+    font-size: 12rem;   
+    margin-left: 8rem; 
+}
+
+.high-low {
+    display: flex;
+    flex-direction: row;
+    margin: 6rem;
+}
+.high-low .max-temp {
+    margin-right: 2rem;
 }
 
 /* 
 Forecast info
 */
 .forecast-info {
+    position: relative;
     display: flex;
     flex-direction: column;
     flex-grow: 0;
     flex-shrink: 1;
     flex-basis: calc(50% - 4rem);
     justify-content: center;
-    margin: 2rem;
+    padding: 2rem;
+}
+
+.forecast-info p {
+    position: absolute;
+    top: 10%;
+    text-align: center;
 }
 
 .forecast-misc {
@@ -73,7 +94,14 @@ Forecast info
     align-items: flex-end;
 }
 
+.misc-forecast-icons {
+    display: inline-block;
+    height: 100px;
+    width: 100px;    
+}
+
 .humidity, .wind, .sunrise, .sunset {
+    text-align: center;
     padding: 4rem;
 }
 
