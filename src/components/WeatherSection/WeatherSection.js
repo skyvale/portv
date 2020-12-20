@@ -97,7 +97,7 @@ const WeatherSection = (props) => {
     return (
         <div className='weather-sect-container'>
             <div className='top-section'>
-                <SearchBox className='search-box' query={props.query} onSearch={onWeatherSearch} />
+                <SearchBox className='forecast-search' query={props.query} onSearch={onWeatherSearch} />
                 <div className='current-weather'>
                     {renderWeather()}
                 </div>  

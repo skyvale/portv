@@ -1,11 +1,10 @@
-.search-box {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
+.search {
+    display: inline-flex;
+    position: relative;
+    
 }
 
-.search-box input {
+.search input {
     width: 400px;
     padding: 10px;
     border: none;
@@ -15,11 +14,13 @@
     background-color: rgba(34, 63, 136, 0.5);
 }
 
-.search-box input::placeholder {
+.search input::placeholder {
     color: #fff;
 }
 
 .search-glass {
+    position: absolute;
+    right: 0;
     width: 20px;
     height: 20px;
     margin: 1rem;

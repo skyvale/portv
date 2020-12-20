@@ -14,19 +14,19 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
     flex-grow: 2;
     padding: 10px;
 }
 
-.search-box {
-    margin: 20px;
+.top-section .forecast-search {
     display: flex;
-    justify-content: center;
 }
 
 .current-weather {
     display: flex;
     justify-content: center;
+    margin-top: 2rem;
 }
 
 .forecast-tabs {

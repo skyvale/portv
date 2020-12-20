@@ -13,7 +13,7 @@ const SearchBox = (props) => {
 
 	// this occurs before page load
 	useEffect(()=>{
-		setQuery(props.query || "no query")			
+		setQuery(props.query)			
 			
 	},[props.query]) // refreshes when query is changed
 
@@ -22,15 +22,19 @@ const SearchBox = (props) => {
 	const search = (e) => {
 		// this function is activated when the user hits 'enter'
 		if (e.key === 'Enter') {
-			props.onSearch(query);
-			console.log(query);			
+			props.onSearch(query);			
 		}
+	}
+	
+	// another search function because idk a better way to do this
+	const searchMouse = (e) => {
+		props.onSearch(query);
 	}
 
 	return(
 		<div>
 			<main>
-				<div className="search-box">
+				<div className="search">
 					<input
 						type="text"
 						className="search-bar"
@@ -39,7 +43,12 @@ const SearchBox = (props) => {
 						value={query}
 						onKeyPress={search}
 					/>
-					<img src={magnifyingglass} alt='magnifying glass icon search' className='search-glass' />
+					<img 
+						src={magnifyingglass} 
+						alt='magnifying glass icon search' 
+						className='search-glass'
+						onMouseDown={searchMouse}
+					/>
 				</div>					
 			</main>
 		</div>
