@@ -1,10 +1,24 @@
 
-.map-container {
+.map-sect-container {
+    position: relative;
     margin: 0 auto;
     padding: 5rem 2rem 2rem 2rem;
     display: flex;
     flex-direction: row;
     justify-content: center;
+}
+
+.map-sect-container::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    display: block;
+    height: 100px;
+    width: 800px;
+    background-image: url('../../assets/splash.png');
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .map-info {

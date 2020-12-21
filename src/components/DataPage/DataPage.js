@@ -5,6 +5,12 @@ import Footer from '../Footer/Footer';
 import './DataPage.css';
 import { useParams } from 'react-router-dom';
 
+/* 
+    The main page of the website. This is where the query is set.
+*/
+
+// =====================================
+
 const DataPage = () => {
 
     // sets the query based on the current /url
@@ -13,7 +19,6 @@ const DataPage = () => {
 
     // track the param query for changes
     useEffect(()=>{
-        //console.log("DataPage.paramQuery", paramQuery);
         setQuery(paramQuery || '');
     },[paramQuery]);
 

@@ -28,10 +28,6 @@ const CurrentForecast = (props) => {
     let sunrise = props.weather.city.sunrise;
     let sunset = props.weather.city.sunset;
 
-    //console.log('current forecast props: ', props);
-    //console.log('currentForecast: ', currentForecast);
-    //console.log('currentTemp: ', currentTemp);
-
     // function that builds the current date
     const dateBuilder = (d) => {
         

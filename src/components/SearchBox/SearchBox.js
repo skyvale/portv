@@ -21,14 +21,16 @@ const SearchBox = (props) => {
 	// search function for weather api
 	const search = (e) => {
 		// this function is activated when the user hits 'enter'
-		if (e.key === 'Enter') {
+		if (e.key === 'Enter' && query !== '') {
 			props.onSearch(query);			
 		}
 	}
 	
 	// another search function because idk a better way to do this
 	const searchMouse = (e) => {
-		props.onSearch(query);
+		if(query !== '') {
+			props.onSearch(query);
+		}		
 	}
 
 	return(

@@ -9,13 +9,12 @@ import './BikeMap.css';
 const BikeMap = (props) => {
 
     // hook for getting the location data from the google api
-    const [location, setLocation] = useState({});
-    const [latitude, setLatitude] = useState(0);
-    const [longitude, setLongitude] = useState(0);
+    //const [location, setLocation] = useState({});
+    //const [latitude, setLatitude] = useState(0);
+    //const [longitude, setLongitude] = useState(0);
 
     // MapBox API stuff
     const mapboxApiAccessToken = 'pk.eyJ1Ijoic2t5dmFsZSIsImEiOiJja2lueDIzMDcxNzhiMnNzdjdvbGlreGNuIn0.TuSm75u2GLQlTdA2YOf4wQ';
-    //const [viewport, setViewport] = useState({});
     const [viewport, setViewport] = useState({
         latitude: 36,
         longitude: -81,
@@ -40,19 +39,18 @@ const BikeMap = (props) => {
         fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=+${query},+USA&key=${googleAPIkey}`)
             .then(res => res.json())
             .then(result => {
-                console.log(result);
-                setLocation(result);
+                //console.log(result);
+                //setLocation(result);
                 setViewport({
                     latitude: result.results[0].geometry.location.lat, 
                     longitude: result.results[0].geometry.location.lng,
                     zoom: 10
                 }); 
-                setLatitude(result.results[0].geometry.location.lat);
-                setLongitude(result.results[0].geometry.location.lng);
+                //setLatitude(result.results[0].geometry.location.lat);
+                //setLongitude(result.results[0].geometry.location.lng);
             });
     }
 
-    //!!TODO add marker to current city using the set lat/long variables, not the ones in viewport
     return(
         <div className='map-container'>
             <ReactMapGL

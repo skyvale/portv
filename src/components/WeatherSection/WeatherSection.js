@@ -40,7 +40,7 @@ const WeatherSection = (props) => {
             .then(res => res.json())
             .then(result => {
                 setWeather(result);
-                console.log(result);
+                //console.log(result);
             });
     }
 
@@ -81,6 +81,8 @@ const WeatherSection = (props) => {
                             forecastTabClick={forecastTabClick} 
                             tabIndex={index}
                         />
+                } else {
+                    return console.log('');
                 }
         });
           
@@ -89,7 +91,6 @@ const WeatherSection = (props) => {
 
     // search box
     const onWeatherSearch = (query) => {
-        // console.log('query= ' + query);
         window.location = '#/search/' + query;
     }
 

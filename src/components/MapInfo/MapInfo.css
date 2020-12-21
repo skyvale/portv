@@ -8,6 +8,15 @@
     flex-wrap: wrap;
     align-content: flex-start;
 }
+.info-container::after {
+    content: ''; 
+    display: block;
+    width: 500px;
+    height: 400px;
+    background-image: url('../../assets/biker.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
 
 .info-container h2 {
     display: flex;  
@@ -32,6 +41,7 @@
     font-style: italic;
 }
 
+/*
 .biker-image {
     position: absolute;
     bottom: 0;
@@ -39,3 +49,4 @@
     height: 300px;
     width: 300px;
 }
+*/
