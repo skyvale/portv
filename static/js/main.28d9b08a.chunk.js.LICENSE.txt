@@ -1,1 +1,0 @@
-//!!TODO add marker to current city using the set lat/long variables, not the ones in viewport
