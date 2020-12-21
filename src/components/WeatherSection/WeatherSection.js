@@ -25,7 +25,7 @@ const WeatherSection = (props) => {
     const [weather, setWeather] = useState({}) 
 
     // sets index for CurrentWeather
-    const [selectedIndex, setSelectedIndex] = useState(8);
+    const [selectedIndex, setSelectedIndex] = useState(0);
 
     // ...
     useEffect(()=>{

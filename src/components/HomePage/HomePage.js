@@ -19,7 +19,9 @@ const HomePage = () => {
     return(
         <div className='homepage'>
             <img className='logo' src={BikeAppLogo} alt='bike app logo' />
-            <SearchBox className='homepage-search' onSearch={onHomeSearch} />
+            <div className='homepage-search'>
+                <SearchBox onSearch={onHomeSearch} />
+            </div>
         </div>
     );
 }

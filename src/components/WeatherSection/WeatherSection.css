@@ -35,6 +35,7 @@
     justify-content: flex-end;
     flex-direction: row;
     margin-top: 2rem;
+    box-shadow: 0px 20px 10px rgba(22, 5, 44, 0.5);
 }
 
 .forecast-tab {

@@ -1,10 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Black+Ops+One&display=swap');
+
+.info-container {
+    position: relative;
+    width: 800px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: flex-start;
+}
 
 .info-container h2 {
-    font-size: 3.2rem;
+    display: flex;  
+    flex-basis: 100%;
+    font-family: 'Black Ops One';
+    font-size: 5rem;
     text-decoration: underline;
-    margin: 2rem;
+    padding: 2rem;
 }
 
 .info-container p {
+    display: flex;
     padding: 2rem;
+    line-height: 1.7;
+}
+.info-container p:first-of-type {
+    font-size: 2.8rem;
+    padding-top: 5rem;
+}
+.info-container p:last-of-type {
+    font-size: 1.6rem;
+    font-style: italic;
+}
+
+.biker-image {
+    position: absolute;
+    bottom: 0;
+    right: 50%;
+    height: 300px;
+    width: 300px;
 }

@@ -9,10 +9,10 @@
 }
 
 .homepage-search {
-    position: absolute !important;
+    position: absolute;
+    top: 15rem;   
     left: 50%;
-    right: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, 0);
 }
 
 .logo {
@@ -24,11 +24,31 @@
     left: 0;
 }
 
-@media (max-width: 700px) {
+/* Tablet Responsiveness */
+@media (max-width: 1200px) {
     .homepage {
-        width: 100vw;
+        background-image: url('../../assets/homepage_bg_tablet.jpg');
+    }
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 800px) {
+    .homepage {
         background-image: url('../../assets/homepage_bg_mobile.jpg');
-        background-repeat: no-repeat;
-        background-size: cover;  
+    }
+}
+@media (max-width: 500px) {
+    .homepage {
+        background-image: none;
+        background-color: #242424;
+    }
+
+    .homepage-search .search input{
+        width: 300px;
+    }
+}
+@media (max-width: 350px) {
+    .homepage-search .search input{
+        width: 200px;
     }
 }
